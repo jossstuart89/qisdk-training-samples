@@ -1,0 +1,13 @@
+topic: ~guessnumber()
+# Defining extra concepts out of words or group of words
+concept:(hello) [hello hi hey "good morning" greetings]
+
+proposal: %START
+    Think of a number and tell me when you're ready
+
+u:(ready) %ASK
+    Is it $currentGuess ?
+
+    u1:({"it is" its} larger) Okay, %LARGER
+    u1:({"it is" its} smaller) Then, %SMALLER
+    u1:([correct "that's right" "you win" yes] ) Yay, I win! Tell me when you're ready to play again %RESET

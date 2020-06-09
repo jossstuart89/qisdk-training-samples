@@ -1,0 +1,35 @@
+topic: ~cars()
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+concept:(color) [red white black green yellow grey]
+
+concept:(car_age) [
+    "$age=old old"
+    "$age=old vintage"
+    "$age=old ancient"
+    "$age=new new"
+    "$age=new recent"
+]
+
+# Replying to speech
+u:(show me a _~color car)
+    Here is a $1 car ^execute(showCar, $1) do you like it?
+
+u:(show me a $car_age _~color car)
+    Here is a $1 car ^execute(showCar, $1, $age) do you like it?
+
+u:(show me any car)
+    Here is a $1 car ^execute(showCar) do you like it?
+
+concept:(chinese_color) [
+    "$color=red hong"
+    "$color=blue lan"
+    "$color=green lu"
+    "$color=black hei"
+    "$color=white bai"
+]
+
+
+u:(gei wo kan _~chinese_color che)
+  I think you want this ^execute(showCar, $color) am I right?
